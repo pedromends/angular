@@ -1,0 +1,35 @@
+<div>
+    <form [formGroup]="form" class="container">
+        <mat-form-field appearance="fill" style="width: 300px;">
+            <mat-label>Task title</mat-label>
+            <input matInput formControlName="title">
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill" style="width: 300px">
+            <mat-label>Type of meeting</mat-label>
+            <mat-select formControlName="type_meeting">
+                <mat-option value="Virtual meeting">Virtual meeting</mat-option>
+                <mat-option value="Presential meeting">Presential meeting</mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill" style="width: 300px">
+            <mat-label>Task details</mat-label>
+            <textarea matInput formControlName="details"></textarea>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill" style="width: 300px">
+            <mat-label>Pick a date</mat-label>
+            <input matInput formControlName="date" [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill" style="width: 300px">
+            <mat-label>Pick an hour</mat-label>
+            <input type="time" matInput formControlName="time"/>
+        </mat-form-field>
+        <button type="submit" style="width: 300px;" (click)="save()">Submit</button>
+    </form>
+</div>
