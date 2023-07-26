@@ -31,7 +31,7 @@ export class AppointmentListComponent implements OnInit {
   displayedColumns: string[] = ['title', 'type', 'details', 'date', 'time', 'actions'];
 
   formatDate(date:any){
-    return formatDate(date, 'yyyy-MM-dd', 'en');
+    return formatDate(date, 'dd-MM-yyyy', 'en');
   }
 
   edit(a:any){
@@ -39,11 +39,11 @@ export class AppointmentListComponent implements OnInit {
   }
 
   deleted(a:any) {
-    if (confirm("Do you REALLY want to delete this item?") == true) {
+    if (confirm("Quer MESMO deletar este registro?") == true) {
       this.calendarService.delete(a)
     }
     this.formsData = this.calendarService.get()
-    alert('Deleted successfully')
+    alert('Deletado com sucesso')
     this.router.navigate(['/'])
   }
 }
